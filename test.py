@@ -49,10 +49,30 @@ def plot_line(y_intercept, slope, low_x, up_x):
     plt.show()
 
 def plot_live():
+    """
+    Plots a live, real-time graph of random data, displaying 10 points.
+
+    This function uses matplotlib's animation to create a dynamic plot that updates every second with new points. The plot shows the last 10 points, removing
+    older points as new ones are added, to simulate a scrolling effect.
+
+    Sub-functions:
+        updateLive(frame): Handles the logic for updating the live plot with new oints.
+            - Appends a new random value to the data arrays (x and y).
+            - Limits the arrays to a maximum of 10 points.
+
+    Returns:
+        Displays the grid gettting updated each time with the new 10 points
+    """
     fig, ax = plt.subplots()
     x, y = [], []
 
     def updateLive(frame):
+        """
+        Updates the plot with new data points for every frame.
+
+        Args:
+            frame (int): The current frame number (unused in this implementation).
+        """
         x.append(len(x))
         y.append(np.random.normal(0, 1))
         if len(x) > 10:
