@@ -22,6 +22,18 @@ def plot_200():
     plt.show()
 
 def plot_line(y_intercept, slope, low_x, up_x):
+    """
+    Plots a line based on the slope and y-intercept, over a specified range for the x-axis.
+
+    Args:
+        y_intercept: The y-intercept of the line.
+        slope: The slope of the line.
+        low_x: The lower boundary of the x-axis range.
+        up_x: The upper boundary of the x-axis range.
+
+    Returns:
+        Display a grid of the plotted line.
+    """
     x = np.linspace(low_x, up_x, 500)
     y = slope * x + y_intercept
 
