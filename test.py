@@ -1,4 +1,14 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_200():
+    points = np.random.normal(0, 1, 200)
+    plt.scatter(range(200), points)
+    plt.title("Plots")
+    plt.xlabel("Index")
+    plt.ylabel("Value")
+    plt.grid(True)
+    plt.show()
 
 def test_should_return_200_plots():
     points = np.random.normal(0, 1, 200)
