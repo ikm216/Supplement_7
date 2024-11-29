@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as anim
+import time
 
 def plot_200():
     """
@@ -44,6 +46,26 @@ def plot_line(y_intercept, slope, low_x, up_x):
     plt.ylabel("y")
     plt.legend()
     plt.grid(True)
+    plt.show()
+
+def plot_live():
+    fig, ax = plt.subplots()
+    x, y = [], []
+
+    def updateLive(frame):
+        x.append(len(x))
+        y.append(np.random.normal(0, 1))
+        if len(x) > 10:
+            x.pop(0)
+            y.pop(0)
+        ax.clear()
+        ax.plot(x, y, marker = "o")
+        ax.set_title("Live Plot")
+        ax.set_xlabel("Time Stops")
+        ax.set_ylabel("Value")
+        ax.grid(True)
+    
+    ani = anim.FuncAnimation(fig, updateLive, interval = 1000)
     plt.show()
 
 def test_should_return_200_plots():
