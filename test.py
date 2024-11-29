@@ -69,3 +69,16 @@ def test_should_return_plot_line():
 
     plot_line(y_intercept, slope, low_x, up_x)
 
+def test_should_return_plots_live():
+    x, y = [], []
+
+    for _ in range(10):
+        x.append(len(x))
+        y.append(np.random.normal(0, 1))
+
+    assert len(x) == len(y) == 10
+    assert np.isclose(np.mean(y), 0, atol = 1)
+    assert np.isclose(np.std(y), 1, atol = 1)
+
+    plot_live()
+
